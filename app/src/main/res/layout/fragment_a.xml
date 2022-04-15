@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|center"
+    android:background="@color/yellow">
+
+app_name
+    <TextView
+        android:id="@+id/fragment_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Homepage_static_content"
+        android:textSize="28sp"
+        android:typeface="serif"/>
+
+    <Button
+        android:id="@+id/next_B_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:padding="18dp"
+        android:text="@string/Dashboard_text"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size"
+        android:background="#80aaff"
+        />
+
+    <Button
+        android:id="@+id/next_C_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:padding="10dp"
+        android:text="@string/Registration_text"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size"
+        android:background="#80ff80"/>
+</LinearLayout>

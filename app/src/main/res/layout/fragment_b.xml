@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size"
+        android:text="Employee Name"
+        />
+    <EditText android:id="@+id/Employee_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginBottom="5dp"
+        android:background="#ffffff"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/Search"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textSize="20sp"
+        android:layout_gravity="left"
+        android:layout_margin="10dp"
+        android:background="#ffa44d"
+        android:text="Search" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size"
+        android:text="Designation"
+        />
+    <!-- Text field to get role details of an employee
+     after searching name-->
+    <EditText android:id="@+id/designation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:textColor="@color/black"/>
+
+    <FrameLayout
+        android:id="@+id/container_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#6e4d50"
+        android:textSize="@dimen/list_text_size"
+        android:layout_weight="1"
+        />
+        <Button
+        android:id="@+id/back_to_A_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="Back to Homepage"
+        android:background="#cccc00"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size" />
+</LinearLayout>
