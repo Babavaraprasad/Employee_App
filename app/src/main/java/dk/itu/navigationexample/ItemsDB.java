@@ -14,89 +14,47 @@ import java.util.Map;
 
 
 public class ItemsDB extends ViewModel{
-    private static ItemsDB sItemsDB;
-    private final Map<String,String> itemsMap = new HashMap<>();
-    private final  List<Item> result = new ArrayList<>();
-    public ItemsDB(Context context) {
-        fillItemsDB(context, "garbage");
+    private final List<Item> values = new ArrayList<>();
+
+    public ItemsDB() {
+        values.add(new Item("Yuni", "Front-end", "27"));
+        values.add(new Item("William", "Fullstack", "27"));
+        values.add(new Item("Baba", "Back-end", "23"));
     }
 
-    public static ItemsDB get() {
-        if (sItemsDB == null) throw new IllegalStateException("ItemsDB must be initialized");
-        return sItemsDB;
+    public void addItem(String employeename, String role, String age) {
+        values.add(new Item(employeename, role, age));
     }
 
-    public void fillItemsDB(Context context, String filename) {
-        try {
-            BufferedReader reader= new BufferedReader(
-                    new InputStreamReader(context.getAssets().open(filename)));
-            String line= reader.readLine();
-            while (line != null) {
-                String[] gItem= line.split(",");
-                itemsMap.put(gItem[0], gItem[1]);
-                line= reader.readLine();
-            }
-        } catch (IOException e) {}
-    }
-
-    public String getWhere(String name) {
-        if (itemsMap.containsKey(name)) {
-            return itemsMap.get(name);
-        } else{
-            return "not found";
-        }
-    }
-
-    public String listItems() {
-        String itemsList = "";
-        for (String item : itemsMap.keySet()) {
-            itemsList += item + " in " + itemsMap.get(item) + "\n";
-        }
-        return itemsList;
-    }
-
-    public void addItem(String name, String role)
-    {
-        itemsMap.put(name, role);
-    }
-    public void addItem2(String name, String age)
-    {
-        if (itemsMap.containsKey(name)) {
-          itemsMap.put(name,age);
-        }
-    }
-
-    public void removeItem(String what) {
-        for (String item : itemsMap.keySet()) {
-            if (item.equals(what)) {
-                itemsMap.keySet().remove(item);
+    public void removeItem(String employeename) {
+        for (Item t : values) {
+            if (t.getWhat().equals(employeename)) {
+                values.remove(t);
                 break;
             }
         }
     }
-    public String search(String query)
-    {
-        String result= "";
-        if(query!=null) {
-            if(itemsMap.containsKey(query))
-            {
-                String wherevalue = getWhere(query);
-                result = query+" Designation is: "+wherevalue;
-            }
-            else { result = query + " Designation is: not found";
-            }
-        }
-        return result;
-    }
-    public List<Item> getValues()
-    {  return result;}
 
-    public List<Item> getAll(){
-        List<Item> result = new ArrayList<>();
-        for (HashMap.Entry<String, String> item: itemsMap.entrySet()){
-            result.add(new Item(item.getKey(), item.getValue()));
+    public Item getWhere(String employeename) {
+        Item theItem = null;
+        for (Item t : values) {
+            if (t.getWhat().equals(employeename)) {
+                theItem = t;
+            }
         }
-        return result;
+        return theItem;
     }
-    public int size() { return result.size(); }
+
+
+    public int size() {
+        return values.size();
+    }
+
+    public String listItems() {
+        StringBuilder r = new StringBuilder();
+        for (Item i : values) r.append(i.toString()).append("\n");
+        return r.toString();
+    }
+
+    public List<Item> getValues() {  return values;  }
 }

@@ -72,7 +72,7 @@ public class CFragment extends Fragment {
                 //one.add(ageofemployee);
                 //one.add(roleofemployee);
                 //
-                itemsDB.addItem(nameofemployee, roleofemployee);
+                itemsDB.addItem(nameofemployee, roleofemployee,ageofemployee);
                 Log.d("Emp1","details are:"+itemsDB.getWhere(nameofemployee));
                 //itemsDB.addItem2(nameofemployee,ageofemployee);
                 //Log.d("Emp2","details are:"+itemsDB.getWhere(nameofemployee));

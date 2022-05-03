@@ -18,23 +18,26 @@ import androidx.navigation.Navigation;
 
 public class BFragment extends Fragment {
     Button backToAButton;
-    Fragment fragmentList;
+    Fragment fragmentUI,fragmentList;
     private FragmentManager fm;
 
 
-    private TextView empname,designation;
-    private Button search;
-    //model: database of items
-    private ItemsViewModel itemsDB;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getActivity()
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v =inflater.inflate(R.layout.fragment_b, container, false);
         //This code is for navigation to the Homepage component(A fragment) from the dashboard component(B component)
+        fm = getParentFragmentManager();
+        fragmentUI= fm.findFragmentById(R.id.container_ui);
+        fragmentList = fm.findFragmentById(R.id.container_list);
+        setUpFragments();
+
         backToAButton = v.findViewById(R.id.back_to_A_button);
-
-
-
         backToAButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,25 +46,22 @@ public class BFragment extends Fragment {
         });
         //code for navigation ends here
 
-        //This code is to search the designation of the employee
-        empname = v.findViewById(R.id.Employee_name);
-        designation = v.findViewById(R.id.designation);
-        search = v.findViewById(R.id.Search);
-
-        // Shared data
-        itemsDB= new ViewModelProvider(requireActivity()).get(ItemsViewModel.class);
-
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String Employee="";
-                Employee= empname.getText().toString().trim();
-                empname.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                designation.setText(itemsDB.getWhere(Employee));
-            }
-        });
-        //code for searching ends here
         return v;
+    }
+    private void setUpFragments() {
+        fragmentUI= fm.findFragmentById(R.id.container_ui);
+        fragmentList= fm.findFragmentById(R.id.container_list);
+
+        fragmentUI= new UIFragment();
+        fm.beginTransaction()
+                .add(R.id.container_ui, fragmentUI)
+                .commit();
+
+        fragmentList= new ListFragment();
+        fm.beginTransaction()
+                .add(R.id.container_list, fragmentList)
+                .commit();
+
     }
 
 }

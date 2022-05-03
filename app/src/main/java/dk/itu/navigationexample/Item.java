@@ -3,7 +3,8 @@ package dk.itu.navigationexample;
 public class Item {
     private String mWhat = null;
     private String mWhere = null;
-    public Item(String what, String where) { mWhat = what;  mWhere = where; }
+    private String mAge = null;
+    public Item(String what, String where,String age) { mWhat = what;  mWhere = where;mAge = age; }
     @Override
     public String toString() { return oneLine(""," in: "); }
     public String getWhat() { return mWhat; }
@@ -13,4 +14,5 @@ public class Item {
     public String oneLine(String pre, String post) {
         return pre+mWhat + post + mWhere;
     }
+    public String getAge() { return mAge; }
 }

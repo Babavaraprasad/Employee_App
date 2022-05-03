@@ -5,47 +5,40 @@ import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemsViewModel extends AndroidViewModel {
+public class ItemsViewModel extends ViewModel {
     private static MutableLiveData<ItemsDB> items;
 
-    public ItemsViewModel(Application application) {
-        super(application);
+    public ItemsViewModel() {
+        super();
         items= new MutableLiveData<>();
-        items.setValue(new ItemsDB(application));
+        items.setValue(new ItemsDB());
     }
 
     public MutableLiveData<ItemsDB> getValue() { return items; }
 
-    public String getWhere(String nameofemployee){
+    public void addItem(String employeename, String role, String age){
         ItemsDB temp= items.getValue();
-        return temp.getWhere(nameofemployee);
-    }
-
-    public void addItem(String name, String role){
-        ItemsDB temp= items.getValue();
-        temp.addItem(name, role);
+        temp.addItem(employeename, role, age);
         items.setValue(temp);
     }
-/*
-    public void addItem2(String name, String age){
-        ItemsDB temp= items.getValue();
-        temp.addItem2(name, age);
-        items.setValue(temp);
-    }
- */
-    public List<Item> getList() {
-        return items.getValue().getAll();
-    }
-
-    public int size() { return items.getValue().getAll().size();}
 
     public void removeItem(String what){
-        ItemsDB temp = items.getValue();
+        ItemsDB temp= items.getValue();
         temp.removeItem(what);
         items.setValue(temp);
     }
+
+    public Item getWhere(String employeename){
+        ItemsDB temp = items.getValue();
+        return temp.getWhere(employeename);
+    }
+
+    public List<Item> getList() {  return items.getValue().getValues();  }
+
+    public int size() { return items.getValue().size(); }
 }
