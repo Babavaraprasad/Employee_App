@@ -26,7 +26,7 @@ public class BFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity()
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle("Dashboard");
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
