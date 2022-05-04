@@ -42,9 +42,9 @@ public class UIFragment extends Fragment {
             public void onClick(View view) {
                 //String Employee="";
                 String Employee= empname.getText().toString().trim();
-                Item var = itemsDB.getWhere(Employee);
+                //Item var = itemsDB.getWhere(Employee);
                 empname.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                designation.setText(var.getWhere());
+                designation.setText(itemsDB.getWhere(Employee));
             }
         });
         //code for searching ends here

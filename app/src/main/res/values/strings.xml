@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Homepage</string>
+    <string name="app_name">Employee Information</string>
     <string name="dashboard_page">Dashboard</string>
     <string name="Registration_page">Registration</string>
     <string name="Homepage_static_content">Welcome to our InnovativeHub Company App(Employee Information Search)</string>

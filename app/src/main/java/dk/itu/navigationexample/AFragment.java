@@ -14,12 +14,6 @@ public class AFragment extends Fragment {
     Button nextButtonToC;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ((MainActivity) getActivity()).getSupportActionBar().setTitle("Homepage");
-
-    }
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v =inflater.inflate(R.layout.fragment_a, container, false);
 

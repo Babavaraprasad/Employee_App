@@ -1,11 +1,13 @@
 package dk.itu.navigationexample;
 
 import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.MutableLiveData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +15,11 @@ import java.util.List;
 public class ItemsViewModel extends ViewModel {
     private static MutableLiveData<ItemsDB> items;
 
+    public void initialize(Context context){
+        items.getValue().initialize(context);
+    }
+
     public ItemsViewModel() {
-        super();
         items= new MutableLiveData<>();
         items.setValue(new ItemsDB());
     }
@@ -33,9 +38,10 @@ public class ItemsViewModel extends ViewModel {
         items.setValue(temp);
     }
 
-    public Item getWhere(String employeename){
+    public String getWhere(String employeename){
         ItemsDB temp = items.getValue();
-        return temp.getWhere(employeename);
+        String designation=temp.getWhere(employeename);
+        return designation;
     }
 
     public List<Item> getList() {  return items.getValue().getValues();  }

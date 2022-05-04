@@ -27,8 +27,7 @@ public class CFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ((MainActivity) getActivity()).getSupportActionBar().setTitle("Registration");}
+        super.onCreate(savedInstanceState);}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,14 +68,8 @@ public class CFragment extends Fragment {
                 Log.d("name","name is: "+nameofemployee.length());
                 Log.d("name","role is: "+roleofemployee.length());
 
-                //List<String> one =new ArrayList<String>();
-                //one.add(ageofemployee);
-                //one.add(roleofemployee);
-                //
                 itemsDB.addItem(nameofemployee, roleofemployee,ageofemployee);
                 Log.d("Emp1","details are:"+itemsDB.getWhere(nameofemployee));
-                //itemsDB.addItem2(nameofemployee,ageofemployee);
-                //Log.d("Emp2","details are:"+itemsDB.getWhere(nameofemployee));
 
                 Log.d("Emp","details are:"+itemsDB.getWhere(nameofemployee));
                 name.setText("");
