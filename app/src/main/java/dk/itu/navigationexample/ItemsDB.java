@@ -51,8 +51,25 @@ public class ItemsDB extends ViewModel{
 
     public void fillItemsDB() {
         addItem("baba", "backend","24");
+        addItem("Emre", "Android developer","25");
+        addItem("Peter", "Android developer","25");
+        addItem("Jorgen", "Tech Lead","28");
+        addItem("Payam", "Tech Lead","27");
         addItem("paul", "deployment lead","26");
         addItem("georguis", "frontend","28");
+        addItem("Nikolaj", "frontend","27");
+        addItem("villads", "java developer","28");
+        addItem("kathie", "python developer","28");
+        addItem("niclas", "UX designer","28");
+        addItem("john", "Administrator","29");
+        addItem("Pretzmann", "IT support","32");
+        addItem("Christensen", "Network engineer","27");
+        addItem("Rouinis", "Cloud architect","22");
+        addItem("Reo", "Cloud specialist","22");
+        addItem("rafal", "UX designer","26");
+        addItem("jakob", "backend","25");
+        addItem("helena", "algorithms analyst","23");
+        addItem("William", "Javascript developer","28");
     }
 
     public ArrayList<Item> getValues() {
