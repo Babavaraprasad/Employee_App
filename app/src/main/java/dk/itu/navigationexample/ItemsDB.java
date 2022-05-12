@@ -37,7 +37,7 @@ public class ItemsDB extends ViewModel{
 
     @SuppressLint("Range")
     public String getWhere(String name){
-        String designation="";
+        String designation="No Records Found";
         String employeename=name;
         Cursor cursor = mDatabase.query(ItemsDbSchema.ItemTable.NAME, new String[]{"role"},
                 ItemsDbSchema.ItemTable.Cols.NAME + " = ?", new String[]{employeename},
